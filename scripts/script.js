@@ -1,4 +1,5 @@
 const animals = ['pigs', 'goats', 'sheep'];
+const animalNames = [];
 console.log(animals);
 animals.push('dogs');
 console.log(animals);
@@ -20,15 +21,24 @@ const getName = function() {
         alert("Please enter a name or cancel.");
         animalName = prompt(promptText);
     } 
-        return animalName;
+        animalNames.push(animalName);
+        console.log(animalNames);
 }
 
 const addAnimalName = function() {
     getName();
-    const newLi = document.createElement("li");
-    ul.append(newLi);
-    newLi.textContent(animalName);
+    const namesList = document.querySelectorAll('#namesList li');
+    for (let i = 0; i < namesList.length; i++) {
+        console.log(namesList[i]);
+    }
+    console.log(namesList);
+    for (let i = 0; i < animalNames.length; i++) {
+           const newLi = document.createElement("li");
+           ul.append(newLi);
+           newLi.textContent = animalNames[i];
+    }
 }
 
 //Runs addAnimalName function when Add New Pet Name button is clicked. 
 buttonNewName.addEventListener('click', addAnimalName);
+
