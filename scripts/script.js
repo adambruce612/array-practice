@@ -11,6 +11,7 @@ for (let i = 0; i < animals.length; i++) {
 //Add animal names to an array
 //Get button element by ID to set up event listener.
 const buttonNewName = document.getElementById("buttonNewName");
+const buttonRemoveName = document.getElementById("buttonRemoveName");
 const ul = document.getElementById("namesList");
 //Prompts the user to enter their pet's name.
 const promptText = "Enter the name of your animal please.";
@@ -36,9 +37,15 @@ const addAnimalName = function() {
            const newLi = document.createElement("li");
            ul.append(newLi);
            newLi.textContent = animalNames[i];
+            }
     }
+
+const removeName = function() {
+    let removeName = getName();
+    console.log(removeName);
 }
 
 //Runs addAnimalName function when Add New Pet Name button is clicked. 
 buttonNewName.addEventListener('click', addAnimalName);
+buttonRemoveName.addEventListener('click', removeName);
 
